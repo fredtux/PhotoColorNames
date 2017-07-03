@@ -1,0 +1,18 @@
+{
+    "name": "fredtux/photo-color-names",
+    "description": "Get the most commonly used colors in a photo and match their code with a name",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FredTux",
+            "email": "fredtux@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhotoColorNames\\": "src/"
+        }
+    },
+    "require": {}
+}
