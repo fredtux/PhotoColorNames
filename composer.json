@@ -14,5 +14,7 @@
             "PhotoColorNames\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "ksubileau/color-thief-php": "~1.3"
+    }
 }
