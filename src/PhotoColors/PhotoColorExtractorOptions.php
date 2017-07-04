@@ -2,7 +2,7 @@
 
 namespace PhotoColorNames\PhotoColors;
 
-class PhotoColorOptions
+class PhotoColorExtractorOptions
 {
     private $img;
     private $count;

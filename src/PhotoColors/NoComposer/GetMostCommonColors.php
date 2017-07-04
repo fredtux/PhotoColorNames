@@ -1,6 +1,8 @@
 <?php
 
-namespace PhotoColorNames\PhotoColors;
+namespace PhotoColorNames\PhotoColors\NoComposer;
+
+use PhotoColorNames\PhotoColors\PhotoColorExtractorOptions;
 
 /**
  * This class can be used to get the most common colors in an image.
@@ -23,7 +25,7 @@ namespace PhotoColorNames\PhotoColors;
  *    http://www.phpclasses.org/browse/package/3370.html
  *
  */
-class GetMostCommonColors implements iPhotoColor
+class GetMostCommonColors
 {
     private $PREVIEW_WIDTH = 150;
     private $PREVIEW_HEIGHT = 150;
@@ -32,17 +34,17 @@ class GetMostCommonColors implements iPhotoColor
 
     /**
      * Returns the colors of the image in an array, ordered in descending order, where the keys are the colors, and the values are the count of the color.
-     * @param PhotoColorOptions $photoColorOptions
+     * @param PhotoColorExtractorOptions $photoColorExtractorOptions
      * @return array
      * @throws \Exception
      */
-    public function getColor(PhotoColorOptions $photoColorOptions)
+    public function getColor(PhotoColorExtractorOptions $photoColorExtractorOptions)
     {
-        $img = $photoColorOptions->getImg();
-        $count = $photoColorOptions->getCount();
-        $reduce_brightness = $photoColorOptions->getReduceBrightness();
-        $reduce_gradients = $photoColorOptions->getReduceGradients();
-        $delta = $photoColorOptions->getDelta();
+        $img = $photoColorExtractorOptions->getImg();
+        $count = $photoColorExtractorOptions->getCount();
+        $reduce_brightness = $photoColorExtractorOptions->getReduceBrightness();
+        $reduce_gradients = $photoColorExtractorOptions->getReduceGradients();
+        $delta = $photoColorExtractorOptions->getDelta();
 
         if (is_readable($img)) {
             if ($delta > 2) {
