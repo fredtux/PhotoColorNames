@@ -2,15 +2,15 @@
 
 namespace PhotoColorNames;
 
-use PhotoColorNames\PhotoColors\iPhotoColor;
-use PhotoColorNames\PhotoColors\PhotoColorOptions;
+use PhotoColorNames\PhotoColors\iPhotoColorExtractor;
+use PhotoColorNames\PhotoColors\PhotoColorExtractorOptions;
 
 class NameColor
 {
 
     ### ATTRIBUTES + GETTERS AND SETTERS ###
     private $photoColor;
-    private $photoColorOptions;
+    private $photoColorExtractorOptions;
 
     /**
      * @return mixed
@@ -31,44 +31,57 @@ class NameColor
     /**
      * @return mixed
      */
-    public function getPhotoColorOptions()
+    public function getPhotoColorExtractorOptions()
     {
-        return $this->photoColorOptions;
+        return $this->photoColorExtractorOptions;
     }
 
     /**
-     * @param mixed $photoColorOptions
+     * @param mixed $photoColorExtractorOptions
      */
-    public function setPhotoColorOptions($photoColorOptions)
+    public function setPhotoColorExtractorOptions($photoColorExtractorOptions)
     {
-        $this->photoColorOptions = $photoColorOptions;
+        $this->photoColorExtractorOptions = $photoColorExtractorOptions;
     }
     ### END OF ATTRIBUTES + GETTERS AND SETTERS ###
 
     ### MAIN METHODS ###
     /**
      * NameColor constructor.
-     * @param iPhotoColor|null $photoColor
-     * @param PhotoColorOptions|null $photoColorOptions
+     * @param iPhotoColorExtractor|null $photoColor
+     * @param PhotoColorExtractorOptions|null $photoColorExtractorOptions
      */
-    public function __construct(iPhotoColor $photoColor = null, PhotoColorOptions $photoColorOptions = null)
+    public function __construct(iPhotoColorExtractor $photoColor = null, PhotoColorExtractorOptions $photoColorExtractorOptions = null)
     {
         if (!is_null($photoColor)) $this->setPhotoColor($photoColor);
-        if (!is_null($photoColorOptions)) $this->setPhotoColorOptions($photoColorOptions);
+        if (!is_null($photoColorExtractorOptions)) $this->setPhotoColorExtractorOptions($photoColorExtractorOptions);
     }
 
     /**
      * Get top colors in the photo
-     * @param PhotoColorOptions|null $photoColorOptions
+     * @param PhotoColorExtractorOptions|null $photoColorExtractorOptions
      * @return mixed
      */
-    public function getFrequentlyUsedColors(PhotoColorOptions $photoColorOptions = null)
+    public function getFrequentlyUsedColors(PhotoColorExtractorOptions $photoColorExtractorOptions = null)
     {
-        if (!is_null($photoColorOptions)) $this->setPhotoColorOptions($photoColorOptions);
+        if (!is_null($photoColorExtractorOptions)) $this->setPhotoColorExtractorOptions($photoColorExtractorOptions);
 
-        $arrColor = $this->photoColor->getColor($this->getPhotoColorOptions());
+        $arrColor = $this->getPhotoColor()->getColors($this->getPhotoColorExtractorOptions());
 
         return $arrColor;
+    }
+
+    public function getNameForColorArray(){
+        #TODO
+    }
+
+    public function getNamesOfFrequentlyUsedColors(iPhotoColorExtractor $photoColor = null, PhotoColorExtractorOptions $photoColorExtractorOptions = null){
+        if (!is_null($photoColor)) $this->setPhotoColor($photoColor);
+        if (!is_null($photoColorExtractorOptions)) $this->setPhotoColorExtractorOptions($photoColorExtractorOptions);
+
+        $colors = $this->getFrequentlyUsedColors($this->getPhotoColorExtractorOptions());
+
+        #TODO
     }
     ### END OF MAIN METHODS ###
 
