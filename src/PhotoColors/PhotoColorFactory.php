@@ -2,8 +2,6 @@
 
 namespace PhotoColorNames\PhotoColors;
 
-use PhotoColorNames\PhotoColors\Adapters;
-
 class PhotoColorFactory
 {
     public static function getColorExtractor($type){
