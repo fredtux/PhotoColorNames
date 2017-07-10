@@ -95,7 +95,7 @@ class ColorData
 
     /**
      * Transforms RGB colors from integer values to hexadecimals and adds a # in front of the string
-     * 
+     *
      * @param $red
      * @param $green
      * @param $blue

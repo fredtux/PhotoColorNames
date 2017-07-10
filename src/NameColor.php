@@ -110,6 +110,13 @@ class NameColor
         return $arrColor;
     }
 
+    /**
+     * Get the closest name for an array of ColorData objects
+     * @param array $aColors
+     * @param iPhotoColorNamesGiver $nameGiver
+     * @param array $nameList
+     * @return array
+     */
     public function getNameForColorArray(array $aColors, iPhotoColorNamesGiver $nameGiver, array $nameList)
     {
         foreach ($aColors as $key => $color) {
@@ -120,6 +127,14 @@ class NameColor
         return $aColors;
     }
 
+    /**
+     * Get the names of the most frequent colors in a file
+     * @param iPhotoColorExtractor|null $photoColor
+     * @param PhotoColorExtractorOptions|null $photoColorExtractorOptions
+     * @param iPhotoColorNamesGiver|null $nameGiver
+     * @param array|null $nameList
+     * @return array|mixed
+     */
     public function getNamesOfFrequentlyUsedColors(iPhotoColorExtractor $photoColor = null, PhotoColorExtractorOptions $photoColorExtractorOptions = null, iPhotoColorNamesGiver $nameGiver = null, array $nameList = null)
     {
         if (!is_null($photoColor)) $this->setPhotoColor($photoColor);
