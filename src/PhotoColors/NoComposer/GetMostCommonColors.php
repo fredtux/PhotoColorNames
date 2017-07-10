@@ -1,4 +1,8 @@
 <?php
+/**
+ * Adapted from:    https://www.phpclasses.org/package/3370-PHP-Extracts-the-most-common-colors-used-in-images.html
+ *                  http://www.coolphptools.com/color_extract
+ */
 
 namespace PhotoColorNames\PhotoColors\NoComposer;
 

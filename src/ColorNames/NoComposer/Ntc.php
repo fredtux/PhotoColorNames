@@ -1,4 +1,8 @@
 <?php
+/**
+ * Ported from: http://chir.ag/projects/ntc/
+ * Licensed under Creative Commons 2.5: https://creativecommons.org/licenses/by/2.5/
+ */
 
 namespace PhotoColorNames\ColorNames\NoComposer;
 
@@ -6,10 +10,6 @@ use PhotoColorNames\PhotoColors\ColorData;
 
 class Ntc
 {
-    private $color;
-    private $rgb;
-    private $hsl;
-
     private $names;
 
     /**
