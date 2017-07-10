@@ -1,6 +1,6 @@
 {
     "name": "fredtux/photo-color-names",
-    "description": "Get the most commonly used colors in a photo and match their code with a name",
+    "description": "Heterogeneous libraries integrator for image color extraction and naming",
     "type": "library",
     "license": "MIT",
     "authors": [
