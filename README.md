@@ -1,4 +1,4 @@
-#PhotoColorNames
+# PhotoColorNames
 **Heterogeneous libraries integrator for image color extraction and naming**
 
 ## Usage
@@ -44,9 +44,6 @@ $x = $nameColor->getNamesOfFrequentlyUsedColors();
 // Print result (not part of MAIN because it's not necessary)
 print_r($x);
 ```
-#### Extractor options
-New extractor options classes can be specified, but have to be paired with the color extractor class
-
 ## Adding new libraries
 ### By Source
 #### Composer
@@ -71,7 +68,9 @@ It is recommended, though not enforced, to place it into the **NoComposer** fold
 5. Examples
    - PhotoColorNames\PhotoColors\Adapters\ColorThiefAdapter
    - GetMostCommonColorsAdapter
-
+#### Extractor options
+New extractor options classes can be specified, but have to be paired with the color extractor class
+1
 #### Color Names
 ##### Libraries
 1. An adapter must be created in src/ColorNames/Adapters
