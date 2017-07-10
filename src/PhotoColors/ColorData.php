@@ -93,6 +93,13 @@ class ColorData
         if(!is_null($name)) $this->setName($name);
     }
 
+    /**
+     * Transforms RGB colors from integer values to hexadecimals and adds a # in front of the string
+     * 
+     * @param $red
+     * @param $green
+     * @param $blue
+     */
     public function rgbIntToHex($red, $green, $blue)
     {
         $this->rgb = '#';
@@ -144,6 +151,12 @@ class ColorData
         return $result['lightness'];
     }
 
+    /**
+     * Convert RGB to HSL
+     *
+     * Ported from: http://chir.ag/projects/ntc/
+     * Licensed under Creative Commons 2.5: https://creativecommons.org/licenses/by/2.5/
+     */
     public function rgbToHsl()
     {
         $rgb = array(
@@ -155,24 +168,24 @@ class ColorData
         $min = min($rgb['red'], min($rgb['green'], $rgb['blue']));
         $max = max($rgb['red'], max($rgb['green'], $rgb['blue']));
         $delta = $max - $min;
-        $l = ($min + $max) / (float)2;
+        $lightness = ($min + $max) / (float)2;
 
-        $s = 0;
-        if ($l > 0 && $l < 1) {
-            $s = $delta / ($l < 0.5 ? (2 * $l) : (2 - 2 * $l));
+        $saturation = 0;
+        if ($lightness > 0 && $lightness < 1) {
+            $saturation = $delta / ($lightness < 0.5 ? (2 * $lightness) : (2 - 2 * $lightness));
         }
 
-        $h = 0;
+        $hue = 0;
         if ($delta > 0) {
             if ($max == $rgb['red'] && $max != $rgb['green'])
-                $h += ($rgb['green'] - $rgb['blue']) / $delta;
+                $hue += ($rgb['green'] - $rgb['blue']) / $delta;
             if ($max == $rgb['green'] && $max != $rgb['blue'])
-                $h += (2 + ($rgb['blue'] - $rgb['red']) / $delta);
+                $hue += (2 + ($rgb['blue'] - $rgb['red']) / $delta);
             if ($max == $rgb['blue'] && $max != $rgb['red'])
-                $h + -(4 + ($rgb['red'] - $rgb['green']) / $delta);
-            $h /= 6;
+                $hue + -(4 + ($rgb['red'] - $rgb['green']) / $delta);
+            $hue /= 6;
         }
 
-        $this->setHslFromParts($h, $s, $l);
+        $this->setHslFromParts($hue, $saturation, $lightness);
     }
 }
