@@ -48,6 +48,8 @@ print_r($x);
 ### By Source
 #### Composer
 Just add it to composer.json and install. Composer will integrate it easily into the project.
+
+[Packagist project](https://packagist.org/packages/fredtux/photo-color-names)
 #### Non-composer
 It is recommended, though not enforced, to place it into the **NoComposer** folder under the **ColorNames** or **PhotoColors** folders depending on the purpose of the new library.
 
